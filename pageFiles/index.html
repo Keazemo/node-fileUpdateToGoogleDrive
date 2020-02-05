@@ -1,0 +1,97 @@
+
+<html>
+    <head>
+        <title>JD</title>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <style>
+            *{margin:0;padding: 0;}
+            .box{
+                width:100%;
+                height: 100%;
+                background: url("https://wallpaperstock.net/coffee-cup-wallpapers_38311_1280x1024.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .center{
+                padding: 20px;
+                width: 300px;
+                height: 200px;
+                background: rgba(0,0,0,.4);
+                text-align: center;
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%, -50%);
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+            }
+            #progressbar {
+                  width: 80%;
+                  background-color: black;
+                  border-radius: 13px;
+                  /* (height of inner div) / 2 + padding */
+                  padding: 3px;
+                  margin: 3px;
+                }
+
+            #progressbar>div {
+                  background-color: orange;
+                  width: 0;
+                  height: 20px;
+                  border-radius: 10px;
+            }
+            #bar{
+              color: white;
+              font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="center">
+              <input type="text" id="link" name="link" placeholder="Link do pliku" value ='http://artweddizi.cluster023.hosting.ovh.net/vetter976hjs/09zabawa.zip'><br>
+              <input type="text" id="name" name="name" placeholder="Nazwa pobranego pliku" value='09zabawa.zip'><br>
+              <div id="progressbar">
+                  <div>
+                    <p id="bar">0%</p>
+                  </div>
+              </div>
+              <hr>
+              <button id="startDownload" onclick="startDownload()">Start</button>
+
+                  <script defer>
+                    function startDownload() {
+                        $.ajax({
+                            type: "POST",
+                            data: {
+                                link: $('input[name="link"]').val(),
+                                name: $('input[name="name"]').val()
+                            }, 
+                            contentType: "application/json; charset=UTF-8"
+                        });
+                        var interval = setInterval(function(){
+                            $.get("/progress", function(x) {
+                                if(x == "endDownload") {
+                                    clearInterval(interval);
+                                    $('#bar').html("Download complete!");
+                                    $('#progressbar>div').css("width", "100%");;
+                                } else {
+                                    $('#bar').html(x + "%");
+                                    $('#progressbar>div').css("width",x + "%");
+                                }
+                            });
+                        }, 500);
+                    }
+
+                  </script>
+              </div>
+            </div>
+    </body>
+</html>

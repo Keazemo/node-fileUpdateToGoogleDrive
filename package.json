@@ -1,0 +1,21 @@
+{
+  "name": "start",
+  "version": "1.0.0",
+  "description": "Poczatki zawsze sa trudne XD",
+  "main": "app.js",
+  "start": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "first_app"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^27.0.0",
+    "mkdirp": "^0.5.1",
+    "open": "^6.1.0",
+    "unzip": "^0.1.11"
+  }
+}

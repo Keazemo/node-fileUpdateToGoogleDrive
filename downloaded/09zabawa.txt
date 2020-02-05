@@ -1,0 +1,9 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /vetter976hjs/09zabawa.zip was not found on this server.</p>
+<hr>
+<address>Apache Server at artweddizi.cluster023.hosting.ovh.net Port 204</address>
+</body></html>
