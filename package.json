@@ -13,7 +13,7 @@
   "author": "me",
   "license": "ISC",
   "dependencies": {
-    "googleapis": "^27.0.0",
+    "googleapis": "^39.1.0",
     "mkdirp": "^0.5.1",
     "open": "^6.1.0",
     "unzip": "^0.1.11"
